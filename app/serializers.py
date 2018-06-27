@@ -30,8 +30,6 @@ class AuthorSerializer(serializers.ModelSerializer):
 
 
 class ArticalSerializer(serializers.ModelSerializer):
-  author = AuthorSerializer
-
   class Meta:
   	model = Artical
   	fields = ('author', 'content', 'title')
