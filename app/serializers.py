@@ -22,20 +22,22 @@ class UserSerializer(serializers.ModelSerializer):
     model = User
     fields = ('username', 'email', 'password')
 
-class Author(serializers.ModelSerializer):
+
+class AuthorSerializer(serializers.ModelSerializer):
    class Meta:
      model = User
      fields = ('username',)
 
+
 class ArticalSerializer(serializers.ModelSerializer):
-  author = Author
+  author = AuthorSerializer
 
   class Meta:
   	model = Artical
   	fields = ('author', 'content', 'title')
 
+
 class VoteSerializer(serializers.ModelSerializer):
-  
   class Meta:
   	model = Vote
   	fields = ('user', 'artical', 'up_vote')
